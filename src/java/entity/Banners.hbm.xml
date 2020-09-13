@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 1, 2020 2:29:27 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Banners" table="Banners" schema="dbo" catalog="Sufee" optimistic-lock="version">
+        <id name="bannerId" type="int">
+            <column name="BannerId" />
+            <generator class="identity" />
+        </id>
+        <property name="bannerPiority" type="int">
+            <column name="BannerPiority" not-null="true" />
+        </property>
+        <property name="bannerImage" type="string">
+            <column name="BannerImage" not-null="true" />
+        </property>
+        <property name="bannerDescription" type="string">
+            <column name="BannerDescription" not-null="true" />
+        </property>
+        <property name="bannerStatus" type="int">
+            <column name="BannerStatus" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

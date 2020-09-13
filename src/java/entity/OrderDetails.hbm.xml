@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 17, 2020 8:45:40 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.OrderDetails" table="OrderDetails" schema="dbo" catalog="Sufee" optimistic-lock="version">
+        <id name="orderDetailsId" type="int">
+            <column name="OrderDetailsId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="orders" class="entity.Orders" fetch="select">
+            <column name="OrderId" />
+        </many-to-one>
+        <many-to-one name="products" class="entity.Products" fetch="select">
+            <column name="ProductId" />
+        </many-to-one>
+        <property name="orderDetailQuantity" type="int">
+            <column name="OrderDetailQuantity" not-null="true" />
+        </property>
+        <property name="orderDetailPrice" type="double">
+            <column name="OrderDetailPrice" precision="53" scale="0" not-null="true" />
+        </property>
+        <property name="createDate" type="timestamp">
+            <column name="CreateDate" length="23" not-null="true" />
+        </property>
+        <property name="orderDetailStatus" type="int">
+            <column name="OrderDetailStatus" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

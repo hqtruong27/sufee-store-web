@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 1, 2020 2:29:27 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Orders" table="Orders" schema="dbo" catalog="Sufee" optimistic-lock="version">
+        <id name="orderId" type="int">
+            <column name="OrderId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="customers" class="entity.Customers" fetch="select">
+            <column name="CustomerId"/>
+        </many-to-one>
+        <property name="fullName" type="string">
+            <column name="FullName" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="Email" not-null="true" />
+        </property>
+        <property name="phone" type="string">
+            <column name="Phone" not-null="true" />
+        </property>
+        <property name="orderTotalAmount" type="double">
+            <column name="OrderTotalAmount" precision="53" scale="0" not-null="true" />
+        </property>
+        <property name="orderNote" type="string">
+            <column name="OrderNote" />
+        </property>
+        <property name="orderAddress" type="string">
+            <column name="OrderAddress" />
+        </property>
+        <property name="createDate" type="timestamp">
+            <column name="CreateDate" not-null="true" />
+        </property>
+        <property name="timeExpired" type="timestamp">
+            <column name="TimeExpired" />
+        </property>
+        <property name="orderStatus" type="int">
+            <column name="OrderStatus" not-null="true" />
+        </property>
+        <set name="orderDetailses" table="OrderDetails" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="OrderId" not-null="true" />
+            </key>
+            <one-to-many class="entity.OrderDetails" />
+        </set>
+    </class>
+</hibernate-mapping>

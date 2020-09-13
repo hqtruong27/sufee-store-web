@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 1, 2020 2:29:27 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Products" table="Products" schema="dbo" catalog="Sufee" optimistic-lock="version">
+        <id name="productId" type="int">
+            <column name="ProductId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="brands" class="entity.Brands" fetch="select">
+            <column name="BrandId" not-null="true" />
+        </many-to-one>
+        <many-to-one name="categories" class="entity.Categories" fetch="select">
+            <column name="CategoryId" not-null="true" />
+        </many-to-one>
+        <property name="productName" type="string">
+            <column name="ProductName" not-null="true" />
+        </property>
+        <property name="productCode" type="string">
+            <column name="ProductCode" length="50" not-null="true" />
+        </property>
+        <property name="starAvg" type="double">
+            <column name="StarAvg" precision="53" scale="0" not-null="true" />
+        </property>
+        <property name="featureImage" type="string">
+            <column name="FeatureImage" not-null="true" />
+        </property>
+        <property name="images" type="string">
+            <column name="Images" />
+        </property>
+        <property name="price" type="double">
+            <column name="Price" precision="53" scale="0" not-null="true" />
+        </property>
+        <property name="productSale" type="int">
+            <column name="ProductSale" not-null="true" />
+        </property>
+        <property name="warranty" type="int">
+            <column name="Warranty" not-null="true" />
+        </property>
+        <property name="saleQuantity" type="int">
+            <column name="SaleQuantity" not-null="true" />
+        </property>
+        <property name="productDescription" type="string">
+            <column name="ProductDescription" not-null="true" />
+        </property>
+        <property name="specificationName" type="string">
+            <column name="SpecificationName" not-null="true" />
+        </property>
+        <property name="specificationValue" type="string">
+            <column name="SpecificationValue" not-null="true" />
+        </property>
+        <property name="productStatus" type="int">
+            <column name="ProductStatus" not-null="true" />
+        </property>
+        <set name="wishlistses" table="Wishlists" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ProductId" not-null="true" />
+            </key>
+            <one-to-many class="entity.Wishlists" />
+        </set>
+        <set name="orderDetailses" table="OrderDetails" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ProductId" not-null="true" />
+            </key>
+            <one-to-many class="entity.OrderDetails" />
+        </set>
+        <set name="productCommentses" table="ProductComments" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ProductId" />
+            </key>
+            <one-to-many class="entity.ProductComments" />
+        </set>
+    </class>
+</hibernate-mapping>

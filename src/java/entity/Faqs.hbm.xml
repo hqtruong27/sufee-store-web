@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 1, 2020 2:29:27 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Faqs" table="FAQs" schema="dbo" catalog="Sufee" optimistic-lock="version">
+        <id name="faqid" type="int">
+            <column name="FAQId" />
+            <generator class="identity" />
+        </id>
+        <property name="fastQuestion" type="string">
+            <column name="FastQuestion" not-null="true" unique="true" />
+        </property>
+        <property name="fastAnswer" type="string">
+            <column name="FastAnswer" not-null="true" />
+        </property>
+        <property name="faqstatus" type="int">
+            <column name="FAQStatus" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

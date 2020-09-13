@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 1, 2020 2:29:27 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.ProductComments" table="ProductComments" schema="dbo" catalog="Sufee" optimistic-lock="version">
+        <id name="productCommentId" type="int">
+            <column name="ProductCommentId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="customers" class="entity.Customers" fetch="select">
+            <column name="CustomerId" />
+        </many-to-one>
+        <many-to-one name="products" class="entity.Products" fetch="select">
+            <column name="ProductId" />
+        </many-to-one>
+        <property name="commentRate" type="int">
+            <column name="CommentRate" not-null="true" />
+        </property>
+        <property name="commentContent" type="string">
+            <column name="CommentContent" />
+        </property>
+        <property name="commentTime" type="timestamp">
+            <column name="CommentTime" length="23" not-null="true" />
+        </property>
+        <property name="commentStatus" type="int">
+            <column name="CommentStatus" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

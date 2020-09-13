@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 1, 2020 2:29:27 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.News" table="News" schema="dbo" catalog="Sufee" optimistic-lock="version">
+        <id name="newsId" type="int">
+            <column name="NewsId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="admins" class="entity.Admins" fetch="select">
+            <column name="AdminId" not-null="true" />
+        </many-to-one>
+        <many-to-one name="catalogs" class="entity.Catalogs" fetch="select">
+            <column name="CatalogId" />
+        </many-to-one>
+        <property name="newTitle" type="string">
+            <column name="NewTitle" not-null="true" />
+        </property>
+        <property name="newImage" type="string">
+            <column name="NewImage" not-null="true" />
+        </property>
+        <property name="newDescription" type="string">
+            <column name="NewDescription" not-null="true" />
+        </property>
+        <property name="countView" type="int">
+            <column name="CountView"/>
+        </property>
+        <property name="createDate" type="timestamp">
+            <column name="CreateDate" not-null="true" />
+        </property>
+        <property name="newContent" type="string">
+            <column name="NewContent" not-null="true" />
+        </property>
+        <property name="newStatus" type="int">
+            <column name="NewStatus" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 1, 2020 2:29:27 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Brands" table="Brands" schema="dbo" catalog="Sufee" optimistic-lock="version">
+        <id name="brandId" type="int">
+            <column name="BrandId" />
+            <generator class="identity" />
+        </id>
+        <property name="brandName" type="string">
+            <column name="BrandName" not-null="true" />
+        </property>
+        <property name="brandPiority" type="int">
+            <column name="BrandPiority" not-null="true" />
+        </property>
+        <property name="brandLogo" type="string">
+            <column name="BrandLogo" not-null="true" />
+        </property>
+        <property name="brandStatus" type="int">
+            <column name="BrandStatus" not-null="true" />
+        </property>
+        <set name="productses" table="Products" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="BrandId" not-null="true" />
+            </key>
+            <one-to-many class="entity.Products" />
+        </set>
+    </class>
+</hibernate-mapping>

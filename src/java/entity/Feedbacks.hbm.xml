@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 1, 2020 2:29:27 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Feedbacks" table="Feedbacks" schema="dbo" catalog="Sufee" optimistic-lock="version">
+        <id name="feedbackId" type="int">
+            <column name="FeedbackId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="admins" class="entity.Admins" fetch="select">
+            <column name="AdminId" />
+        </many-to-one>
+        <many-to-one name="feedbackCatalogs" class="entity.FeedbackCatalogs" fetch="select">
+            <column name="FeedbackCatalogId" not-null="true" />
+        </many-to-one>
+        <property name="fullname" type="string">
+            <column name="Fullname" />
+        </property>
+        <property name="phone" type="string">
+            <column name="Phone" length="20" />
+        </property>
+        <property name="email" type="string">
+            <column name="Email" length="250" />
+        </property>
+        <property name="feedbackAddress" type="string">
+            <column name="FeedbackAddress" />
+        </property>
+        <property name="content" type="string">
+            <column name="Content" not-null="true" />
+        </property>
+        <property name="feedbacksTime" type="date">
+            <column name="FeedbacksTime" length="23" not-null="true" />
+        </property>
+        <property name="feedbackStatus" type="int">
+            <column name="FeedbackStatus" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

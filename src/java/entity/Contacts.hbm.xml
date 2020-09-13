@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 1, 2020 2:29:27 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Contacts" table="Contacts" schema="dbo" catalog="Sufee" optimistic-lock="version">
+        <id name="contactId" type="int">
+            <column name="ContactId" />
+            <generator class="identity" />
+        </id>
+        <property name="contactAddress" type="string">
+            <column name="ContactAddress" not-null="true" />
+        </property>
+        <property name="contactEmail" type="string">
+            <column name="ContactEmail" length="250" not-null="true" unique="true" />
+        </property>
+        <property name="contactHotline" type="string">
+            <column name="ContactHotline" length="20" not-null="true" unique="true" />
+        </property>
+        <property name="contactStatus" type="int">
+            <column name="ContactStatus" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

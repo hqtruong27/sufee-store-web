@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 1, 2020 2:29:27 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Icons" table="Icons" schema="dbo" catalog="Sufee" optimistic-lock="version">
+        <id name="iconId" type="int">
+            <column name="IconId" />
+            <generator class="assigned" />
+        </id>
+        <property name="iconImage" type="string">
+            <column name="IconImage" length="250" not-null="true" unique="true" />
+        </property>
+        <property name="iconStatus" type="int">
+            <column name="IconStatus" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
